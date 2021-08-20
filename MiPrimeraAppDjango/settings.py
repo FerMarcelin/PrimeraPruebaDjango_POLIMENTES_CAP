@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Users.apps.UsersConfig',
+    'rest_framework',
     # Aquí ingreso las apps que estré ocupando en mi proyecto, en este caso es la que yo creé "Users"
 ]
 
@@ -72,10 +73,20 @@ WSGI_APPLICATION = 'MiPrimeraAppDjango.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'primerproyectov2',
+        'USER': 'fermar',
+        'PASSWORD': 'contraseña',
+        'HOST': 'localhost',
+        'PORT': 3306,
     }
 }
 
@@ -114,3 +125,5 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+AUTH_USER_MODEL = 'Users.User'
